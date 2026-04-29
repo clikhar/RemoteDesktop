@@ -20,12 +20,12 @@ services:
       - "80:80"
       - "443:443"
     environment:
-      - HOSTNAME=10.158.81.4
+      - HOSTNAME=${HOSTNAME:-10.158.81.4}
       - REVERSE_PROXY=false
       - IFRAME=false
       - ALLOW_NEW_ACCOUNTS=false
       - WEBRTC=true
-      - SESSION_KEY=change-this-session-key
+      - SESSION_KEY=${SESSION_KEY:?Set SESSION_KEY in .env}
       - MONGO_URL=mongodb://mongo:27017/meshcentral
     volumes:
       - ./meshcentral-data:/opt/meshcentral/meshcentral-data

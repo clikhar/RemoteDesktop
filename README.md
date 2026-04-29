@@ -29,15 +29,23 @@ The implementation uses **MeshCentral** in Docker, which is designed for central
 2. Update `meshcentral-data/config.json`:
    - `cert` should be your public DNS name or static IP.
    - Optional: configure reverse proxy / TLS certs.
-3. Start services:
+3. Create `.env` from template and set a strong session key:
+
+```bash
+cp .env.example .env
+openssl rand -hex 32
+# paste generated value into SESSION_KEY in .env
+```
+
+4. Start services:
 
 ```bash
 docker compose up -d
 ```
 
-4. Open:
+5. Open:
    - `https://<your-server>:443` (or mapped port)
-5. Create the first admin account from the web portal.
+6. Create the first admin account from the web portal.
 
 ## What about MeshAgent?
 
