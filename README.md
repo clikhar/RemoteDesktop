@@ -39,6 +39,35 @@ docker compose up -d
    - `https://<your-server>:443` (or mapped port)
 5. Create the first admin account from the web portal.
 
+## What about MeshAgent?
+
+MeshAgent runs on each client endpoint (Windows/Linux/macOS). In most deployments it is **not** run as a long-lived Docker container, because it needs direct OS/session access for remote desktop and admin operations.
+
+This repo includes helper installers for endpoints:
+
+- `scripts/install-meshagent-linux.sh`
+- `scripts/install-meshagent-windows.ps1`
+
+## MeshAgent as a Docker container (Linux clients)
+
+If you specifically want agent deployment as a container for Linux clients, use `docker-compose.client-agent.yml`.
+
+1. Generate a Linux agent install URL from MeshCentral (**Add Agent**).
+2. Create `.env` next to compose file:
+
+```bash
+MESH_AGENT_URL=https://10.158.81.4/meshagents?id=...
+MESH_DEVICE_NAME=client-linux-01
+```
+
+3. Start the client agent container:
+
+```bash
+docker compose -f docker-compose.client-agent.yml up -d --build
+```
+
+> Note: Windows/macOS clients should still use native agents, not containers.
+
 ## Client onboarding flow
 
 Use the admin UI to create an agent install link and run the agent on each client machine.

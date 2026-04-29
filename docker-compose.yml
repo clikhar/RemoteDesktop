@@ -20,7 +20,7 @@ services:
       - "80:80"
       - "443:443"
     environment:
-      - HOSTNAME=your-public-hostname-or-ip
+      - HOSTNAME=10.158.81.4
       - REVERSE_PROXY=false
       - IFRAME=false
       - ALLOW_NEW_ACCOUNTS=false
