@@ -11,7 +11,7 @@ services:
       - remote-net
 
   meshcentral:
-    image: ylianst/meshcentral:latest
+    image: ghcr.io/ylianst/meshcentral:latest
     container_name: remote-meshcentral
     restart: unless-stopped
     depends_on:

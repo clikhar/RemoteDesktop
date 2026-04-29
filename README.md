@@ -81,6 +81,11 @@ docker compose -f docker-compose.client-agent.yml up -d --build
 Use the admin UI to create an agent install link and run the agent on each client machine.
 Detailed instructions are in `scripts/setup-client-agent.md`.
 
+
+### Image pull note
+
+If you see `pull access denied for ylianst/meshcentral`, use the GHCR image (`ghcr.io/ylianst/meshcentral:latest`). This repository now defaults to GHCR in `docker-compose.yml`.
+
 ## Security recommendations
 
 - Put server behind a firewall and only expose required ports.
