@@ -1,0 +1,28 @@
+{
+  "$schema": "http://info.meshcentral.com/downloads/meshcentral-config-schema.json",
+  "settings": {
+    "cert": "your-public-hostname-or-ip",
+    "WANonly": true,
+    "port": 443,
+    "aliasPort": 443,
+    "redirPort": 80,
+    "AgentPong": 300,
+    "AllowFraming": false,
+    "plugins": {
+      "enabled": true
+    }
+  },
+  "domains": {
+    "": {
+      "title": "Central Remote Desktop",
+      "newAccounts": false,
+      "userNameIsEmail": false,
+      "auth": "local",
+      "mstsc": true,
+      "ssh": true,
+      "agentCustomization": {
+        "displayName": "Central Agent"
+      }
+    }
+  }
+}
