@@ -17,15 +17,6 @@ Use this process for each client system.
 
 ## 3) Install agent on client PC
 
-Choose one method:
-
-- Native install command from MeshCentral UI (recommended).
-- Helper scripts in this repository:
-  - Linux: `scripts/install-meshagent-linux.sh`
-  - Windows: `scripts/install-meshagent-windows.ps1`
-
-Requirements:
-
 - Run installer with admin/root permissions.
 - Ensure outbound connectivity from client to central server on TCP 443.
 - After install, the device appears in the server UI.
@@ -48,14 +39,3 @@ Requirements:
 - Disable unused features (SSH/files if not needed).
 - Separate customer groups with scoped operator accounts.
 - Enable auditing and periodic log review.
-
-
-## 7) Dockerized Linux client agent (optional)
-
-If your Linux client must run as a containerized agent:
-
-1. Set `MESH_AGENT_URL` and optional `MESH_DEVICE_NAME` in `.env`.
-2. Run `docker compose -f docker-compose.client-agent.yml up -d --build`.
-3. Confirm the endpoint appears in MeshCentral.
-
-Use native installers for Windows/macOS endpoints.
